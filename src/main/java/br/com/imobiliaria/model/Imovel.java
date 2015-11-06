@@ -2,12 +2,16 @@
 package br.com.imobiliaria.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -20,14 +24,24 @@ public class Imovel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "tipo", nullable = false, length = 10)
     private Long tipo;
+    @Column(name = "valor", nullable = false, length = 10)
     private Double valor;
+    @Column(name = "descricao", nullable = false, length = 400)
     private String descricao;
+    @Column(name = "uf", nullable = false, length = 100)
     private String uf;
+    @Column(name = "cidade", nullable = false, length = 100)
     private String cidade;
+    @Column(name = "bairro", nullable = false, length = 100)
     private String bairro;
-    private List<Imagem> imagens;
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="imovel",cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    private List<Imagem> imagens = new ArrayList<Imagem>();;
 
+    public Imovel() {
+    }
+    
     public Long getId() {
         return id;
     }

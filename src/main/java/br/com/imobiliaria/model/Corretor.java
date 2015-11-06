@@ -1,10 +1,25 @@
 package br.com.imobiliaria.model;
-//teste
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CORRETOR")
 public class Corretor {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
+    @Column(name = "login", nullable = false, length = 50)
     private String login;
+    @Column(name = "senha", nullable = false, length = 50)
     private String senha;
 
     public Long getId() {
