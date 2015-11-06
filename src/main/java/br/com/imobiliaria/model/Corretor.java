@@ -1,5 +1,5 @@
 package br.com.imobiliaria.model;
-
+//teste
 public class Corretor {
     
     private Long id;
