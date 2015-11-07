@@ -31,8 +31,11 @@ public class ImagemDAO {
     }
 
     public List<Imagem> lista(Long idImovel) {
+        
         TypedQuery<Imagem> q = em.createQuery("SELECT i "
-                + "FROM Imagem i WHERE i.idimovel = "+idImovel+"ORDER BY i.id", Imagem.class);
+                + "FROM Imagem i WHERE i.imovel.id= :idImovel ORDER BY i.id", Imagem.class)
+                .setParameter("idImovel", idImovel);
+
         return q.getResultList();
     }
     

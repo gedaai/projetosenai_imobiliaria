@@ -74,7 +74,7 @@ public class ImovelResourse {
 
     @GET
     @Path("{id}/imagens")
-    public Response listImagens(@PathParam("id") Long id) {
+    public Response listImagens(@PathParam("id") Long id) {        
         List<Long> imagens = imagemDAO.lista(id).stream()
                 .map(e -> e.getId())
                 .collect(Collectors.toList());
