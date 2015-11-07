@@ -1,21 +1,27 @@
+<div ng-controller="loginModal">
+    
+    <H1>Imobiliaria</H1>
+    
+    <button type="button" class="btn btn-default" ng-click="open()">Login</button>
+    
+    
+    <script type="text/ng-template" id="myModalContent.html">
+        
+        <div class="modal-header">
+            <h3 class="modal-title">Acesso restrito</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <label>Login:</label>
+                <input type="text" ng-model="XXXXX" class="form-control">
+                <label>Senha: </label>
+                <input type="password" ng-model="YYYYY" class="form-control">    
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">Login</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 
-
-<!--<div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-warning">
-                {{mensagem}}
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <input type="text" ng-model="mensagem" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <a data-ui-sref="contato">Tela de Contato</a>
-        </div>
-    </div>
-</div>-->
+</div>
