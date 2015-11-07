@@ -17,7 +17,7 @@ public class Informacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long ID;
+    private long id;
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
     @Column(name = "telefone", nullable = false, length = 20)
@@ -33,12 +33,12 @@ public class Informacao {
     public Informacao() {
     }
 
-    public long getID() {
-        return ID;
+    public long getId() {
+        return id;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNome() {
