@@ -72,7 +72,14 @@ public class Informacao {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
+
+    public Imovel getImovel() {
+        return imovel;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
+    }
+      
     
 }

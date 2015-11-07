@@ -2,7 +2,6 @@
 package br.com.imobiliaria.dao;
 
 import br.com.imobiliaria.model.Corretor;
-import static br.com.imobiliaria.model.Informacao_.imovel;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
