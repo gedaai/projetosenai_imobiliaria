@@ -33,13 +33,12 @@ public class ImovelDAO {
     }
     
     public Imovel atualizar(Imovel imovel) {
-        /*
+        
         Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
-        System.out.println("AQUI");
         FileInputStream fileInputStream=null;
         
-        File file = new File("C:\\Folder.jpg");
+        File file = new File("C:\\download.jpg");
         
         byte[] bFile = new byte[(int) file.length()];
         
@@ -55,7 +54,7 @@ public class ImovelDAO {
         imagem.setImagem(bFile);
         List<Imagem> imagens = new ArrayList<>();
         imagens.add(imagem);
-        imovel.setImagens(imagens);*/
+        imovel.setImagens(imagens);
         return em.merge(imovel);
     }
 
@@ -64,7 +63,5 @@ public class ImovelDAO {
                 + "FROM Imovel i ORDER BY i.id", Imovel.class);
         return q.getResultList();
     }
-    
-    
-    
+  
 }
