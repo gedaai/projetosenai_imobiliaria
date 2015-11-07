@@ -25,3 +25,34 @@
     </script>
 
 </div>
+
+<h1>Imóveis</h1>
+
+<table class="table">
+    <tr>
+        <th>Código</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+	<th>Bairro</th>
+	<th>Cidade</th>
+        <th>UF</th>       
+    </tr>
+    <tr ng-repeat="imovel in imoveis">
+        <td>{{imovel.id}}</td>
+        <td>{{imovel.tipo}}</td>
+        <td>{{imovel.descricao}}</td>
+        <td>{{imovel.valor}}</td>
+        <td>{{imovel.bairro}}</td>
+        <td>{{imovel.cidade}}</td>
+        <td>{{imovel.uf}}</td>
+        <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
+    </tr>
+</table>
+
+
+<span ng-repeat="imagem in imagens">
+    <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
+</span>
+
+
