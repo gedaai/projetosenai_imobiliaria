@@ -17,5 +17,10 @@
         <td>{{imovel.bairro}}</td>
         <td>{{imovel.cidade}}</td>
         <td>{{imovel.uf}}</td>
+        <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
     </tr>
 </table>
+
+<span ng-repeat="imagem in imagens">
+    <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
+</span>

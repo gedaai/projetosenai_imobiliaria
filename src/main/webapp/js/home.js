@@ -10,6 +10,18 @@ function HomeController($scope, Imovel) {
             alert(error.data);
         });
     };
+    
+    $scope.buscarImagens = function (imovel) { 
+        $scope.imovel = imovel;
+        imovel.listaImagens().then(function (data) {
+            $scope.imagens = data;
+            console.log($scope.imagens);
+        }, function (error) {
+            console.log('error', error);
+            alert(error.data);
+        });
+    };
+    
     $scope.listar();
 }
 function HomeRoute($stateProvider) {
