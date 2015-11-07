@@ -1,6 +1,5 @@
 package br.com.imobiliaria.model;
 
-import java.sql.Blob;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -20,7 +20,8 @@ public class Imagem {
     @Column(name = "id")
     private Long id;
     @Column(name = "imagem")
-    private Blob imagem;
+    @Lob
+    private byte[] imagem;
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="idimovel")
     private Imovel imovel;
@@ -44,12 +45,12 @@ public class Imagem {
         this.imovel = imovel;
     }
 
-    public Blob getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(Blob imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-    
+
 }

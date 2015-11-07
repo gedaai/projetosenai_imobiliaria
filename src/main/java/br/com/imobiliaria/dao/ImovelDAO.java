@@ -1,7 +1,13 @@
 
 package br.com.imobiliaria.dao;
 
+import br.com.imobiliaria.model.Imagem;
 import br.com.imobiliaria.model.Imovel;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -26,7 +32,30 @@ public class ImovelDAO {
         return em.find(Imovel.class, id);
     }
     
-    public Imovel atualizar(Imovel imovel) {
+    public Imovel atualizar(Imovel imovel) throws SQLException {
+        
+        Imagem imagem = new Imagem();
+        imagem.setImovel(imovel);
+        System.out.println("AQUI");
+        FileInputStream fileInputStream=null;
+        
+        File file = new File("C:\\Folder.jpg");
+        
+        byte[] bFile = new byte[(int) file.length()];
+        
+        try {
+            //convert file into array of bytes
+	    fileInputStream = new FileInputStream(file);
+	    fileInputStream.read(bFile);
+	    fileInputStream.close();
+            
+         }catch(Exception e){
+        	e.printStackTrace();
+        }
+        imagem.setImagem(bFile);
+        List<Imagem> imagens = new ArrayList<>();
+        imagens.add(imagem);
+        imovel.setImagens(imagens);
         return em.merge(imovel);
     }
 
