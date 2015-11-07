@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "IMOVEL")
@@ -37,7 +38,7 @@ public class Imovel implements Serializable {
     @Column(name = "bairro", nullable = false, length = 100)
     private String bairro;
     @OneToMany(fetch=FetchType.EAGER,mappedBy="imovel",cascade={CascadeType.PERSIST,CascadeType.REMOVE})
-    private List<Imagem> imagens = new ArrayList<Imagem>();;
+    private List<Imagem> imagens = new ArrayList<>();;
 
     public Imovel() {
     }
@@ -98,6 +99,7 @@ public class Imovel implements Serializable {
         this.bairro = bairro;
     }
 
+    @XmlTransient
     public List<Imagem> getImagens() {
         return imagens;
     }

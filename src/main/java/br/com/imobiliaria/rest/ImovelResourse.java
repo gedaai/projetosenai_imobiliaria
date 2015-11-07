@@ -1,9 +1,13 @@
 package br.com.imobiliaria.rest;
 
+import br.com.imobiliaria.dao.ImagemDAO;
 import br.com.imobiliaria.dao.ImovelDAO;
+import br.com.imobiliaria.model.Imagem;
 import br.com.imobiliaria.model.Imovel;
+import com.google.gson.Gson;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
@@ -23,38 +27,41 @@ import javax.ws.rs.core.Response;
 @Path("imoveis")
 @Produces(MediaType.APPLICATION_JSON)
 public class ImovelResourse {
-    
+
+    @Inject
+    private ImagemDAO imagemDAO;
+
     @Inject
     private ImovelDAO imovelDAO;
-    
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Imovel insert(Imovel imovel){
+    public Imovel insert(Imovel imovel) {
         imovelDAO.insere(imovel);
         return imovel;
     }
-    
+
     @GET
-    public List<Imovel> list(){
+    public List<Imovel> list() {
         return imovelDAO.lista();
     }
-    
+
     @DELETE
     @Path("{id}")
-    public void delete(@PathParam("id") Long id){
+    public void delete(@PathParam("id") Long id) {
         imovelDAO.excluir(id);
     }
-    
+
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Imovel update(@PathParam("id") Long id, Imovel imovel){
-        if(!Objects.equals(id, imovel.getId())){
+    public Imovel update(@PathParam("id") Long id, Imovel imovel) {
+        if (!Objects.equals(id, imovel.getId())) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
         return imovelDAO.atualizar(imovel);
     }
-    
+
     @GET
     @Path("{id}")
     public Response find(@PathParam("id") Long id) {
@@ -63,5 +70,31 @@ public class ImovelResourse {
             throw new EntityNotFoundException();
         }
         return Response.ok(imovel).build();
+    }
+
+    @GET
+    @Path("{id}/imagens")
+    public Response listImagens(@PathParam("id") Long id) {
+        List<Long> imagens = imagemDAO.lista(id).stream()
+                .map(e -> e.getId())
+                .collect(Collectors.toList());
+//        GenericEntity<List<Long>> list = new GenericEntity<List<Long>>(imagens) {
+//        };
+
+        Gson gson = new Gson();
+
+        return Response.ok(gson.toJson(imagens)).build();
+    }
+
+    @GET
+    @Path("{imovelId}/imagens/{imagemId}")
+    @Produces("image/*")
+    public Response find(@PathParam("imovelId") Long imovelId, @PathParam("imagemId") Long imagemId) {
+        final Imagem imagem = imagemDAO.buscar(imagemId);
+        if (imagem == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok(imagem.getImagem()).build();
     }
 }

@@ -30,9 +30,9 @@ public class ImagemDAO {
         return em.merge(imagem);
     }
 
-    public List<Imagem> lista() {
+    public List<Imagem> lista(Long idImovel) {
         TypedQuery<Imagem> q = em.createQuery("SELECT i "
-                + "FROM Imagem i ORDER BY i.id", Imagem.class);
+                + "FROM Imagem i WHERE i.idimovel = "+idImovel+"ORDER BY i.id", Imagem.class);
         return q.getResultList();
     }
     

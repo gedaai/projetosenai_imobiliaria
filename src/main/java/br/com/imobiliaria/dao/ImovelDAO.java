@@ -32,8 +32,8 @@ public class ImovelDAO {
         return em.find(Imovel.class, id);
     }
     
-    public Imovel atualizar(Imovel imovel) throws SQLException {
-        
+    public Imovel atualizar(Imovel imovel) {
+        /*
         Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
         System.out.println("AQUI");
@@ -55,7 +55,7 @@ public class ImovelDAO {
         imagem.setImagem(bFile);
         List<Imagem> imagens = new ArrayList<>();
         imagens.add(imagem);
-        imovel.setImagens(imagens);
+        imovel.setImagens(imagens);*/
         return em.merge(imovel);
     }
 

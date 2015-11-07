@@ -1,5 +1,6 @@
 package br.com.imobiliaria.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,10 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "IMAGEM")
-public class Imagem {
+@XmlRootElement
+public class Imagem implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +48,7 @@ public class Imagem {
     public void setImovel(Imovel imovel) {
         this.imovel = imovel;
     }
-
+    
     public byte[] getImagem() {
         return imagem;
     }
