@@ -1,7 +1,8 @@
 angular.module('imobiliaria').controller('loginModalFunc', function ($scope, $modalInstance) {
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+  $scope.login = function (corretor) {
+    console.log(corretor);
+    $modalInstance.close(corretor);
   };
 
   $scope.cancel = function () {

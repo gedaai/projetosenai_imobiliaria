@@ -13,13 +13,13 @@
         <div class="modal-body">
             <ul>
                 <label>Login:</label>
-                <input type="text" ng-model="XXXXX" class="form-control">
+                <input type="text" ng-model="corretor.usuario" class="form-control">
                 <label>Senha: </label>
-                <input type="password" ng-model="YYYYY" class="form-control">    
+                <input type="password" ng-model="corretor.senha" class="form-control">    
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">Login</button>
+            <button class="btn btn-primary" type="button" ng-click="login(corretor)" >Login</button>
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
