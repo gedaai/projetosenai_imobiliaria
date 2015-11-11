@@ -8,18 +8,9 @@ angular.module('imobiliaria').controller('loginModal', function ($scope, $uibMod
       animation: $scope.animationsEnabled,
       templateUrl: 'myModalContent.html',
       controller: 'loginModalFunc',
-      size: size,
-      resolve: {
-        items: function () {
-          //return $scope.items;
-        }
-      }
+      size: size
     });
 
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
 });

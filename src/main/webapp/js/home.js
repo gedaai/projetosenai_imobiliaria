@@ -24,6 +24,7 @@ function HomeController($scope, Imovel) {
     
     $scope.listar();
 }
+
 function HomeRoute($stateProvider) {
     $stateProvider.state('home', {
         url: '/',
@@ -31,6 +32,7 @@ function HomeRoute($stateProvider) {
         controller: 'HomeController'
     });
 }
+
 angular.module('imobiliaria')
         .config(HomeRoute)
         .controller('HomeController', HomeController);

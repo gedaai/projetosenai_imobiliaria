@@ -3,6 +3,7 @@
     <H1>Imobiliaria</H1>
     
     <button type="button" class="btn btn-default" ng-click="open()">Login</button>
+    <div ng-show="selected">Bem vindo {{ corretor.usuario }}</div>
     
     
     <script type="text/ng-template" id="myModalContent.html">
@@ -13,13 +14,13 @@
         <div class="modal-body">
             <ul>
                 <label>Login:</label>
-                <input type="text" ng-model="XXXXX" class="form-control">
+                <input type="text" ng-model="corretor.usuario" class="form-control" placeholder="Usuario">
                 <label>Senha: </label>
-                <input type="password" ng-model="YYYYY" class="form-control">    
+                <input type="password" ng-model="corretor.senha" class="form-control" placeholder="Senha">    
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">Login</button>
+            <button class="btn btn-primary" type="button" ng-click="login(corretor)" >Login</button>
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
