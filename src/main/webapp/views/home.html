@@ -28,7 +28,7 @@
 </div>
 
 <h1>Imóveis</h1>
-
+<a class="btn btn-primary" data-ui-sref="imovel">Cadastrar imóvel</a>
 <table class="table">
     <tr>
         <th>Código</th>
@@ -51,9 +51,16 @@
     </tr>
 </table>
 
-
+<div style="height: 305px">
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="imagem in imagens" active="slide.active">
+        <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+        </div>
+      </uib-slide>
+    </uib-carousel>
+</div>
 <span ng-repeat="imagem in imagens">
     <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
 </span>
-
-
