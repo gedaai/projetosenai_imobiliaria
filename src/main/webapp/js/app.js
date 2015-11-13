@@ -3,7 +3,8 @@
 angular.module('imobiliaria', [
     'ui.router',
     'ui.bootstrap',
-    'rails'
+    'rails',
+    'flow'
 ]).config(function ($urlRouterProvider, RailsResourceProvider, railsSerializerProvider) {
     $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/error?code=404');
