@@ -22,6 +22,15 @@ function HomeController($scope, Imovel) {
         });
     };
     
+    $scope.excluir = function (imovel) {
+        imovel.remove().then(function () {
+            $scope.listar();
+        }, function (error) {
+            console.log('error', error);
+            alert(error.data);
+        });
+    };
+    
     $scope.listar();
 }
 

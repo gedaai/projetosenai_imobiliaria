@@ -5,9 +5,7 @@ angular.module('imobiliaria', [
     'ui.bootstrap',
     'rails',
     'flow'
-]).config(function ($urlRouterProvider, RailsResourceProvider, railsSerializerProvider) {
-    $urlRouterProvider.when('', '/');
-    $urlRouterProvider.otherwise('/error?code=404');
+]).config(function ($urlRouterProvider,RailsResourceProvider, railsSerializerProvider) {
     RailsResourceProvider.rootWrapping(false);
     railsSerializerProvider.underscore(angular.identity).camelize(angular.identity);
 }).constant('API_URL', 'api/');

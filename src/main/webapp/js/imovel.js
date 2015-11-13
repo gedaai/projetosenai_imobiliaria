@@ -1,11 +1,11 @@
 'use strict';
 
-function ImovelController($scope, Imovel,$location,$flow,$flowProvider){
+function ImovelController($scope, Imovel,$location){
     $scope.gravar = function () {
        
         if ($scope.imovel.id) {
             $scope.imovel.update().then(function () {
-
+                $scope.voltar();
             }, function (error) {
                 console.log('error', error);
                 alert(error.data);
@@ -13,24 +13,18 @@ function ImovelController($scope, Imovel,$location,$flow,$flowProvider){
         } else {
             new Imovel($scope.imovel).create()
                     .then(function () {
-                        
+                        $scope.voltar();
                     }, function (error) {
                         console.log('error', error);
                         alert(error.data);
                     });
         }
     };
-    $scope.imageStrings = [];
-    $scope.processFiles = function(files){
-        angular.forEach(files, function(flowFile, i){
-            var fileReader = new FileReader();
-            fileReader.onload = function (event) {
-                var uri = event.target.result;
-                $scope.imageStrings[i] = uri;     
-            };
-          fileReader.readAsDataURL(flowFile.file);
-        });
+    
+    $scope.voltar = function () {
+        $location.path("/");
     };
+    
 }
 
 function ImovelRoute($stateProvider) {

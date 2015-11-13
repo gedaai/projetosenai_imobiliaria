@@ -1,5 +1,6 @@
 package br.com.imobiliaria.model;
 
+import br.com.imobiliaria.dao.CorretorDAO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -55,5 +56,5 @@ public class Corretor {
     }
     
     
-            
+    
 }

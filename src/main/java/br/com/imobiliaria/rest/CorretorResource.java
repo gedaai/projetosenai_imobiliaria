@@ -31,8 +31,9 @@ public class CorretorResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Corretor insert(Corretor corretor){
-        corretorDAO.insere(corretor);
-        return corretor;
+        //corretorDAO.insere(corretor);
+        //return corretor;
+        return corretorDAO.login(corretor);
     }
     
     @GET
@@ -64,6 +65,13 @@ public class CorretorResource {
             throw new EntityNotFoundException();
         }
         return Response.ok(corretor).build();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("login")
+    public Corretor login(Corretor corretor){
+        return corretorDAO.login(corretor);
     }
     
 }

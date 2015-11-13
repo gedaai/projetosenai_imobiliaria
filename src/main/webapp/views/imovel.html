@@ -6,38 +6,4 @@ Bairro: <input type="text" ng-model="imovel.bairro" /><br/>
 Cidade: <input type="text" ng-model="imovel.cidade" /><br/>
 UF: <input type="text" ng-model="imovel.uf" /><br/>
 <button class="btn btn-primary" ng-click="gravar()">Gravar</button>
-<a class="btn" data-ui-sref="home">Cancelar</a>
-
-
-
-
-<div class="row">
-    <div class="span6">
-      <h2>Inputs1:</h2>
-      <input type="file" flow-btn/>
-      <h2>Inputs2:</h2>
-      <input type="file" flow-btn flow-directory ng-show="$flow.supportDirectory"/>
-    </div>
-    <div class="span6">
-      <h2>Buttons:</h2>
-
-      <span class="btn" flow-btn><i class="icon icon-file"></i>Upload File</span>
-      <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
-        Upload Folder
-      </span>
-    </div>
-  </div>
-
-<a href="#" class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</a>
-<a href="#" class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</a>
-<div flow-init flow-name="uploader.flow" flow-files-added="processFiles($files)">
-    <button flow-btn type="file">Upload Images</button>
-    <button flow-btn="" type="file">
-        Upload Images
-        <input type="file" multiple="multiple" style="visibility: hidden; position: absolute;">
-    </button>
-    <div ng-repeat="image in uploader.flow.files track by $index">
-      <span class="text">Blob image displayed with "flow-img"</span> <img class="preview" flow-img="image"/><br>
-      <span class="text">Base64 image displayed with "ng-src"</span> <img class="preview" ng-src="{{imageStrings[$index]}}"/>
-    </div>
-</div>
+<a class="btn btn-default" ng-click="voltar()">Cancelar</a>

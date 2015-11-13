@@ -5,6 +5,7 @@ import br.com.imobiliaria.model.Corretor;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -34,6 +35,19 @@ public class CorretorDAO {
         TypedQuery<Corretor> q = em.createQuery("SELECT c "
                 + "FROM Corretor c ORDER BY c.id", Corretor.class);
         return q.getResultList();
+    }
+    
+    public Corretor login(Corretor corretor) {
+        try {
+            String jpql = "SELECT u FROM Corretor u "
+                    + "WHERE u.login = :login AND u.senha = :senha";
+            TypedQuery<Corretor> q = em.createQuery(jpql, Corretor.class);
+            q.setParameter("login", corretor.getLogin());
+            q.setParameter("senha", corretor.getSenha());
+            return q.getSingleResult();
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
     
 }
