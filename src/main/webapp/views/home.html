@@ -1,12 +1,11 @@
 <div ng-controller="loginModal">
     
-    <H1>Imobiliaria</H1>
+    <H1 ng-show="!corretor.id">Imobiliária</H1>
   
-    <div ng-show="corretor.id">
-        <H2>Bem vindo {{ corretor.nome }}!</H2>
-    </div>
-    <button type="button" class="btn btn-default" ng-click="open()">Login</button>
-    
+    <H1 ng-show="corretor.id">Imobiliária - Bem vindo {{ corretor.nome }}!</H1>
+ 
+    <button ng-show="!corretor.id" type="button" class="btn btn-default" ng-click="open()">Espaço do Corretor</button>
+    <button ng-show="corretor.id" type="button" class="btn btn-default" ng-click="logout()">Sair</button>
     
     <script type="text/ng-template" id="myModalContent.html">
         
@@ -29,47 +28,51 @@
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
+    
+</div> 
 
-</div>
 <div ng-controller="HomeController">
-    <h1>Lista Imóveis</h1>
-    {{corretor.nome}}
-    <a class="btn btn-primary" data-ui-sref="imovel">Cadastrar imóvel</a>
-    <table class="table">
-        <tr>
-            <th>Código</th>
-            <th>Tipo</th>
-            <th>Descrição</th>
-            <th>Valor</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>UF</th>       
-        </tr>
-        <tr ng-repeat="imovel in imoveis">
-            <td>{{imovel.id}}</td>
-            <td>{{imovel.tipo}}</td>
-            <td>{{imovel.descricao}}</td>
-            <td>{{imovel.valor}}</td>
-            <td>{{imovel.bairro}}</td>
-            <td>{{imovel.cidade}}</td>
-            <td>{{imovel.uf}}</td>
-            <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
-            <td><button ng-show="imoveis" ng-click="excluir(imovel)">Excluir</button></td>
-        </tr>
-    </table>
+        <h1>Lista de Imóveis</h1>
+        <a ng-show="corretor.id" class="btn btn-primary" data-ui-sref="imovel">Cadastrar imóvel</a>
+        <table class="table">
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th></th>  
+                <th ng-show="corretor.id"></th>  
+            </tr>
+            <tr ng-repeat="imovel in imoveis">
+                <td>{{imovel.id}}</td>
+                <td>{{imovel.tipo}}</td>
+                <td>{{imovel.descricao}}</td>
+                <td>{{imovel.valor}}</td>
+                <td>{{imovel.bairro}}</td>
+                <td>{{imovel.cidade}}</td>
+                <td>{{imovel.uf}}</td>
+                <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
+                <td ng-show="!corretor.id"><button  >Estou interessado</button></td>
+                <td ng-show="corretor.id"><button  >Interessados</button></td>
+                <td ng-show="corretor.id"><button ng-click="excluir(imovel)">Excluir</button></td>
+            </tr>
+        </table>
 
-    <div style="height: 305px">
-        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-          <uib-slide ng-repeat="imagem in imagens" active="slide.active">
+        <div style="height: 305px">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+              <uib-slide ng-repeat="imagem in imagens" active="slide.active">
+                <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
+                <div class="carousel-caption">
+                  <h4>Slide {{$index}}</h4>
+                </div>
+              </uib-slide>
+            </uib-carousel>
+        </div>
+        <span ng-repeat="imagem in imagens">
             <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
-            <div class="carousel-caption">
-              <h4>Slide {{$index}}</h4>
-            </div>
-          </uib-slide>
-        </uib-carousel>
-    </div>
-    <span ng-repeat="imagem in imagens">
-        <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
-    </span>
+        </span>
 
 </div>
