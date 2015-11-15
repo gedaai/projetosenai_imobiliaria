@@ -1,36 +1,3 @@
-<div ng-controller="loginModal">
-    
-    <H1 ng-show="!corretor.id">Imobiliária</H1>
-  
-    <H1 ng-show="corretor.id">Imobiliária - Bem vindo {{ corretor.nome }}!</H1>
- 
-    <button ng-show="!corretor.id" type="button" class="btn btn-default" ng-click="open()">Espaço do Corretor</button>
-    <button ng-show="corretor.id" type="button" class="btn btn-default" ng-click="logout()">Sair</button>
-    
-    <script type="text/ng-template" id="myModalContent.html">
-        
-        <div class="modal-header">
-            <h3 class="modal-title">Espaço do Corretor</h3>
-        </div>
-        <div ng-show="erro" class="alert alert-danger">
-		Usuário ou senha incorreto
-	</div>
-        <div class="modal-body">
-            <ul>
-                <label>Login:</label>
-                <input type="text" ng-model="corretor.login" class="form-control" placeholder="Usuario">
-                <label>Senha: </label>
-                <input type="password" ng-model="corretor.senha" class="form-control" placeholder="Senha">    
-            </ul>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="login(corretor)" >Login</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-    
-</div> 
-
 <div ng-controller="HomeController">
         <h1>Lista de Imóveis</h1>
         <a ng-show="corretor.id" class="btn btn-primary" data-ui-sref="imovel">Cadastrar imóvel</a>

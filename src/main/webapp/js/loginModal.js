@@ -1,4 +1,4 @@
-angular.module('imobiliaria').controller('loginModal', function ($scope, $rootScope, $uibModal) {
+angular.module('imobiliaria').controller('loginModal', function ($scope, $rootScope, $location, $uibModal) {
 
   $scope.animationsEnabled = true;
 
@@ -15,6 +15,7 @@ angular.module('imobiliaria').controller('loginModal', function ($scope, $rootSc
   
   $scope.logout = function () {
         $rootScope.corretor = {};
+        $location.path("/");
   };
 
 });
