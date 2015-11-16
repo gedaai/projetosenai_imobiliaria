@@ -1,6 +1,6 @@
 'use strict';
 
-function HomeController($scope, Imovel) {
+function HomeController($scope, Imovel, $uibModal) {
 
     $scope.listar = function () { 
         Imovel.query().then(function (data) {
@@ -31,7 +31,23 @@ function HomeController($scope, Imovel) {
         });
     };
     
+    $scope.informacao = function (imovel, size) {
+        
+        console.log("Imovel" + imovel)
+        
+        var modalInstance = $uibModal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'myModalContentInfo.html',
+          controller: 'informacaoModalFunc',
+          size: size
+        });
+
+      };
+    
     $scope.listar();
+    
+    
+    
 }
 
 function HomeRoute($stateProvider) {
@@ -41,6 +57,8 @@ function HomeRoute($stateProvider) {
         controller: 'HomeController'
     });
 }
+
+
 
 angular.module('imobiliaria')
         .config(HomeRoute)

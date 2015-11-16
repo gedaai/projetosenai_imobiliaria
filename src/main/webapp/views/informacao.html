@@ -1,0 +1,27 @@
+<div ng-controller="HomeController">
+
+    <script type="text/ng-template" id="myModalContentInfo.html">
+        
+        <div class="modal-header">
+            <h3 class="modal-title">Informação sobre o imovel {{ $Scope.imovel.id }}</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <label>Nome:</label>
+                <input type="text" ng-model="informacao.nome" class="form-control" placeholder="Insira seu nome">    
+                <label>Telefone:</label>
+                <input type="text" ng-model="informacao.telefone" class="form-control" placeholder="Insira seu telefone">
+                <label>E-mail:</label>
+                <input type="text" ng-model="informacao.email" class="form-control" placeholder="Insira seu e-mail">
+                <label>Descrição:</label>
+                <input type="text" ng-model="informacao.descricao" class="form-control" placeholder="Insira alguma informação">
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="gravarInformacao(informacao)" >Enviar</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        </div>
+    </script>
+    
+</div> 
+

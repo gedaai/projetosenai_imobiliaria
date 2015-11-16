@@ -22,7 +22,7 @@
                 <td>{{imovel.cidade}}</td>
                 <td>{{imovel.uf}}</td>
                 <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
-                <td ng-show="!corretor.id"><button  >Estou interessado</button></td>
+                <td ng-show="!corretor.id"><button ng-click="informacao(imovel)">Estou interessado</button></td>
                 <td ng-show="corretor.id"><button  >Interessados</button></td>
                 <td ng-show="corretor.id"><button ng-click="excluir(imovel)">Excluir</button></td>
             </tr>
