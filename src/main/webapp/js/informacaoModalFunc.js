@@ -24,9 +24,20 @@ angular.module('imobiliaria').controller('informacaoModalFunc', function ($scope
         }
 
     };
+    
+    $scope.listar = function () { 
+        Informacao.query().then(function (data) {
+            $scope.informacoes = data;
+        }, function (error) {
+            console.log('error', error);
+            alert(error.data);
+        });
+    };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+    
+    $scope.listar();
 
 });
