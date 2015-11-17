@@ -31,6 +31,7 @@ public class InformacaoResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Informacao insert(Informacao informacao){
+        System.out.println("AQUI: "+informacao.getDescricao()+" - "+informacao.getEmail());
         informacaoDAO.insere(informacao);
         return informacao;
     }

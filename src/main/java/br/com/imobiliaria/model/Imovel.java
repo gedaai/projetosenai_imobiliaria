@@ -38,7 +38,9 @@ public class Imovel implements Serializable {
     @Column(name = "bairro", nullable = false, length = 100)
     private String bairro;
     @OneToMany(fetch=FetchType.EAGER,mappedBy="imovel",cascade={CascadeType.PERSIST,CascadeType.REMOVE})
-    private List<Imagem> imagens = new ArrayList<>();;
+    private List<Imagem> imagens = new ArrayList<>();
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="imovel",cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    private List<Informacao> informacoes = new ArrayList<>();
 
     public Imovel() {
     }
