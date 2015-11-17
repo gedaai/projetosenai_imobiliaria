@@ -1,8 +1,10 @@
-angular.module('imobiliaria').controller('informacaoModalFunc', function ($scope, $location, Informacao, $modalInstance) {
+angular.module('imobiliaria').controller('informacaoModalFunc', function ($scope, $rootScope, $location, Informacao, $modalInstance) {
      
    $scope.gravarInformacao = function (informacao) {
     console.log("INFORMACAO");
     console.log(informacao);
+    
+    informacao.imovel = $rootScope.imovel;
     
    if ($scope.informacao.id) {
             $scope.informacao.update().then(function () {
