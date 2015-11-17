@@ -1,11 +1,21 @@
 <div ng-controller="loginModal">
     
-    <H1 ng-show="!corretor.id">Imobiliária</H1>
-  
-    <H1 ng-show="corretor.id">Imobiliária - Bem vindo {{ corretor.nome }}!</H1>
- 
-    <button ng-show="!corretor.id" type="button" class="btn btn-default" ng-click="open()">Espaço do Corretor</button>
-    <button ng-show="corretor.id" type="button" class="btn btn-default" ng-click="logout()">Sair</button>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+         
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <label ng-show="!corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária</FONT></label>
+                <label ng-show="corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária - Bem vindo {{ corretor.nome }}!</FONT></label>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+              <button ng-show="!corretor.id" type="button" class="btn btn-default" ng-click="open()">Espaço do Corretor</button>
+              <button ng-show="corretor.id" type="button" class="btn btn-default" ng-click="logout()">Sair</button>
+            </ul>
+          </div>
+        </div>
+      </nav>
     
     <script type="text/ng-template" id="myModalContent.html">
         
