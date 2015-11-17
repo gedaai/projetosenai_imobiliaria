@@ -1,0 +1,31 @@
+<div ng-controller="HomeController">
+
+    <script type="text/ng-template" id="myModalContentInteresse.html">
+        
+        <div class="modal-header">
+            <h3 class="modal-title">Pessoas que tem interesse</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+            
+            <table class="table">
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th ng-show="corretor.id"></th>  
+            </tr>
+            <tr ng-repeat="imovel in imoveis">
+                <td>{{imovel.id}}</td>
+                <td>{{imovel.descricao}}</td>
+            </tr>
+        </table>
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        </div>
+    </script>
+    
+</div> 
+

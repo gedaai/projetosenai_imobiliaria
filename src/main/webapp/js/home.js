@@ -41,8 +41,20 @@ function HomeController($scope, Imovel, $uibModal) {
           controller: 'informacaoModalFunc',
           size: size
         });
-
-      };
+    }
+    
+    $scope.interessado = function (imovel, size) {
+        
+        console.log("Imovel" + imovel)
+        
+        var modalInstance = $uibModal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'myModalContentInteresse.html',
+          controller: 'informacaoModalFunc',
+          size: size
+        });
+    }
+  
     
     $scope.listar();
     
