@@ -1,6 +1,6 @@
 'use strict';
 
-function HomeController($scope, Imovel, $uibModal) {
+function HomeController($scope, $rootScope, Imovel, $uibModal) {
 
     $scope.listar = function () { 
         Imovel.query().then(function (data) {
@@ -33,7 +33,9 @@ function HomeController($scope, Imovel, $uibModal) {
     
     $scope.informacao = function (imovel, size) {
         
+        $rootScope.imovel = imovel;
         console.log("Imovel" + imovel)
+        
         
         var modalInstance = $uibModal.open({
           animation: $scope.animationsEnabled,
