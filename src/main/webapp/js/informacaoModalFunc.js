@@ -32,6 +32,7 @@ angular.module('imobiliaria').controller('informacaoModalFunc', function ($scope
     };
     
     $scope.listarInformacao = function () { 
+        console.log("AASSS")
         Informacao.query().then(function (data) {
             $scope.informacao = data;
         }, function (error) {
@@ -39,5 +40,9 @@ angular.module('imobiliaria').controller('informacaoModalFunc', function ($scope
             alert(error.data);
         });
     };
+    
+    $scope.listarInformacao();
+    
+  
   
 });

@@ -45,8 +45,6 @@ function HomeController($scope, Imovel, $uibModal) {
     
     $scope.interessado = function (imovel, size) {
         
-        console.log("Imovel" + imovel)
-        
         var modalInstance = $uibModal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'myModalContentInteresse.html',
@@ -55,10 +53,7 @@ function HomeController($scope, Imovel, $uibModal) {
         });
     }
     
-    
     $scope.listar();
-    
-    
     
 }
 
