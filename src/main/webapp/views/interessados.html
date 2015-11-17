@@ -12,11 +12,10 @@
             <tr>
                 <th>Código</th>
                 <th>Descrição</th>
-                <th ng-show="corretor.id"></th>  
             </tr>
-            <tr ng-repeat="imovel in imoveis">
-                <td>{{imovel.id}}</td>
-                <td>{{imovel.descricao}}</td>
+            <tr ng-repeat="informacao in informacoes">
+                <td>{{informacao.id}}</td>
+                <td>{{informacao.descricao}}</td>
             </tr>
         </table>
                 

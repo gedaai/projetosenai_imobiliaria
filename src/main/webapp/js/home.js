@@ -54,7 +54,7 @@ function HomeController($scope, Imovel, $uibModal) {
           size: size
         });
     }
-  
+    
     
     $scope.listar();
     
