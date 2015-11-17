@@ -1,7 +1,7 @@
 <div ng-controller="HomeController">
     
         <h1>Lista de Imóveis</h1>
-        <a ng-show="corretor.id" class="btn btn-primary" data-ui-sref="imovel">Cadastrar imóvel</a>
+        <a ng-show="corretor.id" class="btn btn-primary" ng-click="novo()">Cadastrar imóvel</a>
         <table class="table">
             <tr>
                 <th>Código</th>
@@ -25,6 +25,7 @@
                 <td><button ng-click="buscarImagens(imovel)">Fotos</button></td>
                 <td ng-show="!corretor.id"><button ng-click="informacao(imovel)">Estou interessado</button></td>
                 <td ng-show="corretor.id"><button ng-click="interessado(imovel)" >Interessados</button></td>
+                <td ng-show="corretor.id"><button ng-click="editar(imovel)">Editar</button></td>
                 <td ng-show="corretor.id"><button ng-click="excluir(imovel)">Excluir</button></td>
             </tr>
         </table>

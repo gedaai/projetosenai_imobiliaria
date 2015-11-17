@@ -11,6 +11,7 @@ function ImovelController($scope, Imovel,$location){
                 alert(error.data);
             });
         } else {
+            console.log($scope.imovel);
             new Imovel($scope.imovel).create()
                     .then(function () {
                         $scope.voltar();
