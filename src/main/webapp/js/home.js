@@ -1,6 +1,6 @@
 'use strict';
 
-function HomeController($scope, $rootScope, Imovel, $uibModal) {
+function HomeController($scope, $rootScope, Imovel, $uibModal, $location) {
 
     $scope.listar = function () { 
         Imovel.query().then(function (data) {
@@ -29,6 +29,16 @@ function HomeController($scope, $rootScope, Imovel, $uibModal) {
             console.log('error', error);
             alert(error.data);
         });
+    };
+    
+    $scope.editar = function (imovel) {
+        $rootScope.imovel = imovel;
+        $location.path("/imovel");
+    };
+    
+    $scope.novo = function () {
+        $rootScope.imovel = {};
+        $location.path("/imovel");
     };
     
     $scope.informacao = function (imovel, size) {
