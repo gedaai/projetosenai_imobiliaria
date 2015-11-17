@@ -110,4 +110,12 @@ public class Imovel implements Serializable {
         this.imagens = imagens;
     }
     
+    @XmlTransient
+    public List<Informacao> getInformacoes() {
+        return informacoes;
+    }
+
+    public void setInformacoes(List<Informacao> informacoes) {
+        this.informacoes = informacoes;
+    }
 }
