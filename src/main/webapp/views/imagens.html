@@ -1,0 +1,16 @@
+<div ng-controller="HomeController">
+
+    <script type="text/ng-template" id="myModalContentImagem.html">
+        <div class="modal-body">
+        <div style="height: 405px">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+              <uib-slide ng-repeat="imagem in imagens" active="slide.active">
+                <img ng-src="{{imovel.urlImagem(imagem)}}" style="margin:auto;">
+              </uib-slide>
+            </uib-carousel>
+        </div>
+        </div>
+    </script>
+    
+</div> 
+

@@ -34,11 +34,12 @@ public class ImovelDAO {
     
     public Imovel atualizar(Imovel imovel) {
         
-        /*Imagem imagem = new Imagem();
+        /*List<Imagem> imagens = new ArrayList<>();
+        Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
         FileInputStream fileInputStream=null;
         
-        File file = new File("C:\\download.jpg");
+        File file = new File("C:\\Imagens\\teste1.jpg");
         
         byte[] bFile = new byte[(int) file.length()];
         
@@ -52,8 +53,51 @@ public class ImovelDAO {
         	e.printStackTrace();
         }
         imagem.setImagem(bFile);
-        List<Imagem> imagens = new ArrayList<>();
+        
         imagens.add(imagem);
+        
+        imagem = new Imagem();
+        imagem.setImovel(imovel);
+        fileInputStream=null;
+        
+        file = new File("C:\\Imagens\\teste2.jpg");
+        
+        bFile = new byte[(int) file.length()];
+        
+        try {
+            //convert file into array of bytes
+	    fileInputStream = new FileInputStream(file);
+	    fileInputStream.read(bFile);
+	    fileInputStream.close();
+            
+         }catch(Exception e){
+        	e.printStackTrace();
+        }
+        imagem.setImagem(bFile);
+        
+        imagens.add(imagem);
+        
+        imagem = new Imagem();
+        imagem.setImovel(imovel);
+        fileInputStream=null;
+        
+        file = new File("C:\\Imagens\\teste3.jpg");
+        
+        bFile = new byte[(int) file.length()];
+        
+        try {
+            //convert file into array of bytes
+	    fileInputStream = new FileInputStream(file);
+	    fileInputStream.read(bFile);
+	    fileInputStream.close();
+            
+         }catch(Exception e){
+        	e.printStackTrace();
+        }
+        imagem.setImagem(bFile);
+        
+        imagens.add(imagem);
+        
         imovel.setImagens(imagens);*/
         return em.merge(imovel);
     }
