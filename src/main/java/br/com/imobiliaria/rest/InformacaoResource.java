@@ -67,4 +67,5 @@ public class InformacaoResource {
         return Response.ok(informacao).build();
     }
     
+    
 }

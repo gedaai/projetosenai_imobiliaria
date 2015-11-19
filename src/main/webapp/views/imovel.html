@@ -1,10 +1,25 @@
-<h1>Cadastrar Imóvel</h1>
-Tipo: <input type="text" ng-model="imovel.tipo" /><br/>
-<!--Descrição: <input type="text" ng-model="imovel.descricao" /><br/>-->
-Descrição: <textarea type="text" ng-model="imovel.descricao" rows="5" placeholder="Insira informações"></textarea><br/>
-Valor: <input type="text" ng-model="imovel.valor" /><br/>
-Bairro: <input type="text" ng-model="imovel.bairro" /><br/>
-Cidade: <input type="text" ng-model="imovel.cidade" /><br/>
-UF: <input type="text" ng-model="imovel.uf" /><br/>
-<button class="btn btn-primary" ng-click="gravar()">Gravar</button>
-<a class="btn btn-default" ng-click="voltar()">Cancelar</a>
+<style>
+    .jumbotron {
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<div class="jumbotron">
+    <h3>Cadastrar Imóvel</h3>
+    <label>Tipo</label>
+    <input class="form-control" type="text" ng-model="imovel.tipo" placeholder="Apto, casa..."/><br/>
+    <label>Descrição</label> 
+    <textarea class="form-control" type="text" ng-model="imovel.descricao" rows="5" placeholder="Insira informações"></textarea><br/>
+    <label>Valor</label> 
+    <input class="form-control" type="text" ng-model="imovel.valor" placeholder="R$" /><br/>
+    <label>Bairro</label> 
+    <input class="form-control" type="text" ng-model="imovel.bairro" placeholder="Informe o bairro..."/><br/>
+    <label>Cidade</label> 
+    <input class="form-control" type="text" ng-model="imovel.cidade" placeholder="Informe a cidade..." /><br/>
+    <label>UF</label> 
+    <input class="form-control" type="text" ng-model="imovel.uf" placeholder="Informe a UF..."/><br/>
+    <button class="btn btn-primary btn-block" ng-click="gravar()">Gravar</button>
+    <a class="btn btn-warning btn-block" ng-click="voltar()">Cancelar</a>
+</div>

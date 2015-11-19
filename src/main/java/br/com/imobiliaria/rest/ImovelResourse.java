@@ -2,8 +2,10 @@ package br.com.imobiliaria.rest;
 
 import br.com.imobiliaria.dao.ImagemDAO;
 import br.com.imobiliaria.dao.ImovelDAO;
+import br.com.imobiliaria.dao.InformacaoDAO;
 import br.com.imobiliaria.model.Imagem;
 import br.com.imobiliaria.model.Imovel;
+import br.com.imobiliaria.model.Informacao;
 import com.google.gson.Gson;
 import java.util.List;
 import java.util.Objects;
@@ -34,6 +36,9 @@ public class ImovelResourse {
     @Inject
     private ImovelDAO imovelDAO;
 
+    @Inject
+    private InformacaoDAO informacaoDAO;
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Imovel insert(Imovel imovel) {
@@ -96,4 +101,13 @@ public class ImovelResourse {
         }
         return Response.ok(imagem.getImagem()).build();
     }
+    
+    @GET
+    @Path("{id}/informacoes")
+    public Response listInformacoes(@PathParam("id") Long id) {        
+        List<Informacao> informacoes = informacaoDAO.listaInf(id);
+        
+        return Response.ok(informacoes).build();
+    }
+    
 }

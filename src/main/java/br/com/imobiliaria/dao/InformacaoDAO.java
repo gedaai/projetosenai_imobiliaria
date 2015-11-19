@@ -31,11 +31,20 @@ public class InformacaoDAO {
         return em.merge(informacao);
     }
 
+    
     public List<Informacao> lista() {
         TypedQuery<Informacao> q = em.createQuery("SELECT i "
                 + "FROM Informacao i ORDER BY i.id", Informacao.class);
+        
         return q.getResultList();
     }
     
+    public List<Informacao> listaInf(Long idImovel) {
+        TypedQuery<Informacao> q = em.createQuery("SELECT i "
+                + "FROM Informacao i WHERE i.imovel.id= :idImovel ORDER BY i.id", Informacao.class)
+                .setParameter("idImovel", idImovel);
+        
+        return q.getResultList();
+    }
     
 }
