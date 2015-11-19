@@ -105,9 +105,13 @@ public class ImovelResourse {
     @GET
     @Path("{id}/informacoes")
     public Response listInformacoes(@PathParam("id") Long id) {        
-        List<Informacao> informacoes = informacaoDAO.listaInf(id);
-        
-        return Response.ok(informacoes).build();
+        List<Long> informacao = informacaoDAO.listaInf(id).stream()
+                .map(e -> e.getId())
+                .collect(Collectors.toList());
+
+        Gson gson = new Gson();
+
+        return Response.ok(gson.toJson(informacao)).build();
     }
     
 }

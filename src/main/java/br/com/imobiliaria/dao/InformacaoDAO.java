@@ -47,4 +47,5 @@ public class InformacaoDAO {
         return q.getResultList();
     }
     
+    
 }

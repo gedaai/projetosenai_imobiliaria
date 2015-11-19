@@ -7,7 +7,7 @@ angular.module('imobiliaria')
             url: API_URL + 'informacoes'
         });
         
-        Informacao.prototype.listInformacoes = function() {
+        Informacao.prototype.listaInformacoes = function() {
            return Informacao.$get(this.$url() + "/informacoes");  
         };
         
