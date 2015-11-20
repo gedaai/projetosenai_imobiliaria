@@ -61,13 +61,21 @@ function HomeController($scope, $rootScope, Imovel, $uibModal, $location) {
         });
     };
 
-    $scope.interessado = function (imovel, size) {
-
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'myModalContentInteresse.html',
-            controller: 'informacaoModalFunc',
-            size: size
+    $scope.interessado = function (imovel) {
+        $rootScope.imovel = imovel;
+        $rootScope.informacoes = null;
+        
+        imovel.listaInformacoes().then(function (data) {
+            $rootScope.informacoes = data;
+            console.log($rootScope.informacoes);
+            if ($rootScope.informacoes.length > 0){
+                $location.path("/interessados");
+            } else {
+                alert("Não há interessados por este imóvel!");
+            }
+        }, function (error) {
+            console.log('error', error);
+            alert(error.data);
         });
     };
 

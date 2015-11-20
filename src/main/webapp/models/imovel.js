@@ -14,7 +14,11 @@ angular.module('imobiliaria')
         Imovel.prototype.urlImagem = function(imagemId) {
             return this.$url() + "/imagens/" + imagemId;
         };
-
+        
+        Imovel.prototype.listaInformacoes = function() {
+           return Imovel.$get(this.$url() + "/informacoes");  
+        };
+        
         return Imovel;
     });
 

@@ -1,32 +1,21 @@
-<div ng-controller="HomeController">
-
-    <script type="text/ng-template" id="myModalContentInteresse.html">
-        
-        <div class="modal-header">
-            <h3 class="modal-title">Pessoas que tem interesse</h3>
-        </div>
-        <div class="modal-body">
-            <ul>
+<div ng-controller="HomeController" class="jumbotron">
             
-            <table class="table">
+        <h3>Interessados pelo imóvel {{ imovel.id }}</h3>
+        <table class="table">
             <tr>
                 <th>Código</th>
-                <th>Descrição</th>
-                <th>Imovel</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Descrição</th> 
             </tr>
-            <tr ng-repeat="informacao in informacoes">
-                <td>{{informacao.id}}</td>
-                <td>{{informacao.descricao}}</td>
-                <td>{{informacao.idimovel}}</td>
+            <tr ng-repeat="info in informacoes">
+                <td>{{info.id}}</td>
+                <td>{{info.nome}}</td>
+                <td>{{info.telefone}}</td>
+                <td>{{info.email}}</td>
+                <td>{{info.descricao}}</td>
             </tr>
         </table>
-                
-            </ul>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-warning btn-block" type="button" ng-click="cancel()">Cancelar</button>
-        </div>
-    </script>
-    
-</div> 
-
+        <a class="btn btn-warning btn-block" ng-click="voltar()">Voltar</a>
+</div>
