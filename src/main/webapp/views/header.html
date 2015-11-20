@@ -5,12 +5,12 @@
          
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <label ng-show="!corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária</FONT></label>
-                <label ng-show="corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária - Bem vindo {{ corretor.nome }}!</FONT></label>
+                <label style="margin-top: 7px" ng-show="!corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária</FONT></label>
+                <label style="margin-top: 7px" ng-show="corretor.id"><FONT FACE="Arial" SIZE="5" COLOR="white">Imobiliária - Bem vindo {{ corretor.nome }}!</FONT></label>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <button ng-show="!corretor.id" type="button" class="btn btn-default btn-sm" ng-click="open()">Espaço do Corretor</button>
-                <button ng-show="corretor.id" type="button" class="btn btn-default btn-sm" ng-click="logout()">Sair</button>
+                <button style="margin-top: 7px; height: 33px; width: 150px" ng-show="!corretor.id" type="button" class="btn btn-default btn-sm" ng-click="open()"><font SIZE="2">Espaço do Corretor</font></button>
+                <button style="margin-top: 7px; height: 33px; width: 150px" ng-show="corretor.id" type="button" class="btn btn-default btn-sm" ng-click="logout()"><font SIZE="2">Sair</font></button>
             </ul>
           </div>
         </div>
