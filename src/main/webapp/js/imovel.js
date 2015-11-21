@@ -1,7 +1,11 @@
 'use strict';
 
 function ImovelController($scope, Imovel,$location){
+    
     $scope.gravar = function () {
+        
+       $scope.imovel.tipo = $scope.tipos.codigo.codigo;
+       $scope.imovel.uf = $scope.estados.nome.nome;
        
         if ($scope.imovel.id) {
             $scope.imovel.update().then(function () {
@@ -25,6 +29,20 @@ function ImovelController($scope, Imovel,$location){
     $scope.voltar = function () {
         $location.path("/");
     };
+    
+    $scope.tipos = [
+        {nome: "Casa", codigo:1},
+        {nome: "Apartamento", codigo:2},
+        {nome: "Sala comercial", codigo:3}
+    ];
+    
+    $scope.estados = [
+        {nome: "SC"},
+        {nome: "PR"},
+        {nome: "RS"},
+        {nome: "SP"},
+        {nome: "RJ"}
+    ];
     
 }
 

@@ -2,7 +2,14 @@
 
 function HomeController($scope, $rootScope, Imovel, $uibModal, $location) {
 
+    var tipos = [
+        {nome: "Casa", codigo: 1},
+        {nome: "Apartamento", codigo: 2},
+        {nome: "Sala comercial", codigo: 3}
+    ];
+
     $scope.listar = function () {
+        
         Imovel.query().then(function (data) {
             $scope.imoveis = data;
         }, function (error) {
@@ -79,7 +86,26 @@ function HomeController($scope, $rootScope, Imovel, $uibModal, $location) {
         });
     };
 
+    $scope.buscaTipo = function (idTipo) {
+        var tipoImovel = $.grep(tipos, function(e) {
+            return e.codigo == idTipo;
+          });
+          
+          if (tipoImovel.length == 0) {
+            console.log('Não encontrado');
+          } else if (tipoImovel.length == 1) {
+              return tipoImovel[0].nome;
+          } else {
+            console.log('Mais de um registro!');
+          }
+          
+         
+    };
+
+    
+
     $scope.listar();
+
 
 }
 

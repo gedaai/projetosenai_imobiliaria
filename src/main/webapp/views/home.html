@@ -1,7 +1,8 @@
 <div ng-controller="HomeController" class="jumbotron">
-            
+    
         <h3>Lista de Imóveis</h3>
         <a ng-show="corretor.id" class="btn btn-primary" ng-click="novo()">Cadastrar imóvel</a>
+        
         <table class="table">
             <tr>
                 <th>Código</th>
@@ -16,7 +17,7 @@
             </tr>
             <tr ng-repeat="imovel in imoveis">
                 <td>{{imovel.id}}</td>
-                <td>{{imovel.tipo}}</td>
+                <td>{{buscaTipo(imovel.tipo)}}</td>
                 <td>{{imovel.descricao}}</td>
                 <td>{{imovel.valor}}</td>
                 <td>{{imovel.bairro}}</td>

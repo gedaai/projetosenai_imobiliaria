@@ -38,6 +38,15 @@ public class CorretorDAO {
     }
     
     public Corretor login(Corretor corretor) {
+        
+        if (lista().isEmpty()) {
+            Corretor c = new Corretor();
+            c.setLogin("leonardo");
+            c.setSenha("leonardo");
+            c.setNome("Leonardo Zanivan");
+            insere(c);
+        }
+        
         try {
             String jpql = "SELECT u FROM Corretor u "
                     + "WHERE u.login = :login AND u.senha = :senha";

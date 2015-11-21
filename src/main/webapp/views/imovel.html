@@ -7,19 +7,26 @@
 </style>
 
 <div class="jumbotron">
+    
     <h3>Cadastrar Imóvel</h3>
     <label>Tipo</label>
-    <input class="form-control" type="text" ng-model="imovel.tipo" placeholder="Apto, casa..."/><br/>
+    <!--<input class="form-control" type="text" ng-model="imovel.tipo" placeholder="Apto, casa..."/><br/>-->
+    <select class="form-control" ng-model="tipos.codigo" ng-options="tipo.nome for tipo in tipos">
+        <option value="">Selecione o tipo</option>
+    </select>
     <label>Descrição</label> 
     <textarea class="form-control" type="text" ng-model="imovel.descricao" rows="5" placeholder="Insira informações"></textarea><br/>
     <label>Valor</label> 
-    <input class="form-control" type="text" ng-model="imovel.valor" placeholder="R$" /><br/>
+    <input class="form-control" type="number" ng-model="imovel.valor" placeholder="R$"/><br/>
     <label>Bairro</label> 
     <input class="form-control" type="text" ng-model="imovel.bairro" placeholder="Informe o bairro..."/><br/>
     <label>Cidade</label> 
     <input class="form-control" type="text" ng-model="imovel.cidade" placeholder="Informe a cidade..." /><br/>
     <label>UF</label> 
-    <input class="form-control" type="text" ng-model="imovel.uf" placeholder="Informe a UF..."/><br/>
+    <!--<input class="form-control" type="text" ng-model="imovel.uf" placeholder="Informe a UF..."/><br/>-->
+    <select class="form-control" ng-selected="imovel.uf" ng-model="estados.nome" ng-options="estado.nome for estado in estados">
+        <option value="">Selecione o estado</option>
+    </select>
     <button class="btn btn-primary btn-block" ng-click="gravar()">Gravar</button>
     <a class="btn btn-warning btn-block" ng-click="voltar()">Cancelar</a>
 </div>

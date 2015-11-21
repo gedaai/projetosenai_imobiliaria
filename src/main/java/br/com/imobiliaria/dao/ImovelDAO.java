@@ -34,7 +34,7 @@ public class ImovelDAO {
     
     public Imovel atualizar(Imovel imovel) {
         
-        /*List<Imagem> imagens = new ArrayList<>();
+        List<Imagem> imagens = new ArrayList<>();
         Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
         FileInputStream fileInputStream=null;
@@ -98,7 +98,7 @@ public class ImovelDAO {
         
         imagens.add(imagem);
         
-        imovel.setImagens(imagens);*/
+        imovel.setImagens(imagens);
         return em.merge(imovel);
     }
 
