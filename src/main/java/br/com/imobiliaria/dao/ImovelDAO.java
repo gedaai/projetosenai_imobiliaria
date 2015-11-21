@@ -39,7 +39,8 @@ public class ImovelDAO {
         imagem.setImovel(imovel);
         FileInputStream fileInputStream=null;
         
-        File file = new File("C:\\Imagens\\teste1.jpg");
+        /*File file = new File("C:\\Imagens\\teste1.jpg");
+        //File file = new File("teste1.jpg");
         
         byte[] bFile = new byte[(int) file.length()];
         
@@ -95,7 +96,7 @@ public class ImovelDAO {
         	e.printStackTrace();
         }
         imagem.setImagem(bFile);
-        
+        */
         imagens.add(imagem);
         
         imovel.setImagens(imagens);
@@ -103,6 +104,7 @@ public class ImovelDAO {
     }
 
     public List<Imovel> lista() {
+        
         TypedQuery<Imovel> q = em.createQuery("SELECT i "
                 + "FROM Imovel i ORDER BY i.id", Imovel.class);
         return q.getResultList();
