@@ -5,8 +5,7 @@ import br.com.imobiliaria.model.Imagem;
 import br.com.imobiliaria.model.Imovel;
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Blob;
-import java.sql.SQLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -38,9 +37,10 @@ public class ImovelDAO {
         Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
         FileInputStream fileInputStream=null;
-        
-        /*File file = new File("C:\\Imagens\\teste1.jpg");
-        //File file = new File("teste1.jpg");
+      
+        /*
+        //File file = new File("C:\\Imagens\\teste1.jpg");
+        File file = new File("teste1.jpg");
         
         byte[] bFile = new byte[(int) file.length()];
         
@@ -61,7 +61,8 @@ public class ImovelDAO {
         imagem.setImovel(imovel);
         fileInputStream=null;
         
-        file = new File("C:\\Imagens\\teste2.jpg");
+//        file = new File("C:\\Imagens\\teste2.jpg");
+        file = new File("teste2.jpg");
         
         bFile = new byte[(int) file.length()];
         
@@ -82,7 +83,8 @@ public class ImovelDAO {
         imagem.setImovel(imovel);
         fileInputStream=null;
         
-        file = new File("C:\\Imagens\\teste3.jpg");
+        //file = new File("C:\\Imagens\\teste3.jpg");
+        file = new File("teste3.jpg");
         
         bFile = new byte[(int) file.length()];
         
