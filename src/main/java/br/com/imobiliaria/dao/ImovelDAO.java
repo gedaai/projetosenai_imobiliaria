@@ -37,10 +37,10 @@ public class ImovelDAO {
         Imagem imagem = new Imagem();
         imagem.setImovel(imovel);
         FileInputStream fileInputStream=null;
-      
-        /*
+      /*
+        ClassLoader classLoader = getClass().getClassLoader();
         //File file = new File("C:\\Imagens\\teste1.jpg");
-        File file = new File("teste1.jpg");
+        File file = new File(classLoader.getResource("teste1.jpg").getFile());
         
         byte[] bFile = new byte[(int) file.length()];
         
@@ -56,7 +56,7 @@ public class ImovelDAO {
         imagem.setImagem(bFile);
         
         imagens.add(imagem);
-        
+        /*
         imagem = new Imagem();
         imagem.setImovel(imovel);
         fileInputStream=null;
